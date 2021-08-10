@@ -23,7 +23,7 @@ CDH/HDP默认都会自带一个Spark发行版，但这个自带的要么太旧�
 ## 可能存在的问题
 
 CDH/HDP 根据版本不同，会在Yarn节点上默默的带上一些默认Jar包，**可能**会发生Jar包冲突。
-对于HDP大家可以参考这篇文章[Ambari hdp Spark多版本兼容](http://docs.mlsql.tech/zh/develop/ambari_multi_spark.html)获得一些思路.
+对于HDP大家可以参考这篇文章[Ambari hdp Spark多版本兼容](http://docs.mlsql.tech/mlsql-console/qa/ambari_multi_spark.html)获得一些思路.
 
 对于Spark运行在如 CDH,比如比较早的版本如5.13.1，可能需要解决一些问题，大家可以根据实际的错误按图索骥：
 
