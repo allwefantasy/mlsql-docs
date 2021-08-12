@@ -186,10 +186,11 @@
 
 * [MLSQL Engine开发环境设置](dev_guide/engine/README.md)
     * [Spark 2.4.3开发环境](dev_guide/engine/spark_2_4_3.md)
-    * [Spark 3.0.0开发环境](dev_guide/engine/spark_3_0_0.md)
+    * [Spark 3.0.0开发环境](dev_guide/engine/spark_3_0_0.md)    
 * [ET插件开发](dev_guide/engine/plugin/ET_README.md)
     * [ET插件开发](dev_guide/engine/plugin/et.md)
     * [命令行开发](dev_guide/engine/plugin/et_command.md)
+* [自动化测试用例开发](dev_guide/engine/it/integration_test.md)     
 * [其他插件开发](dev_guide/engine/plugin/OTHER_README.md)
     * [自定义数据源插件开发](dev_guide/engine/plugin/ds.md)
 
