@@ -16,12 +16,8 @@ select a from table1 as output;
 ```
 
 下面给一个完整的例子：
-首先生成两个表，table1和table2。然后执行`SyntaxAnalyzeExt`抽取一个嵌套的 SQL 的所有的表。 如下：
+执行`SyntaxAnalyzeExt`抽取一个嵌套的 SQL 的所有的表。 如下：
 ```sql
- select "stub" as table1;
- 
- select "stub" as table2;
-
  run command as SyntaxAnalyzeExt.`` where
  action = "extractTables" and sql='''
  select * from (select * from table1 as c) as d left join table2 as e on d.id=e.id
