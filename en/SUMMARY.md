@@ -118,6 +118,8 @@
        * [NaiveBayes](algs/naive_bayes.md)
        * [ALS](algs/als.md)
        * [RandomForest](algs/random_forest.md)
+       * [LogisticRegression](algs/logistic_regression.md)
+       * [LinearRegression](algs/linear_regression.md)
        * [LDA](algs/lda.md)
        * [XGBoost](algs/xgboost.md)
    * [基于Java的深度学习框架集成](dl/README.md)
