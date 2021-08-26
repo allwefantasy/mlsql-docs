@@ -77,6 +77,7 @@
        * [如何发送邮件](process/estimator_transformer/SendMessage.md)
        * [数据采集组件mlsql-watcher使用](process/estimator_transformer/mlsql-watcher.md)
        * [语法解析SyntaxAnalyzeExt使用](process/estimator_transformer/SyntaxAnalyzeExt.md)
+       * [JSON Expansion JsonExpandExt](process/estimator_transformer/JsonExpandExt.md)
 
 * [MLSQL流编程](stream/README.md)
    * [Kafka和MockStream](stream/datasource.md)
