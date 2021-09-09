@@ -11,6 +11,7 @@
    * [MLSQL Stack 2.0.0版发布](release-notes/2.0.0.md)
    * [MLSQL Stack 2.0.1 Bug 合集](release-notes/2.0.1-bug.md)
    * [MLSQL Stack 2.0.0 Bug 合集](release-notes/2.0.0-bug.md)
+   * 
 
 ## 快速启动
 
@@ -22,6 +23,7 @@
        * [Local](howtouse/engine/deploy.md)
        * [K8s部署](howtouse/engine/k8s_deploy.md)
        * [Yarn部署](howtouse/engine/yarn_deploy.md)
+   * [MLSQL 命令行安装与配置](howtouse/mlsql_lang_cli.md)
 
 ## Analysis Workshop 操作
 

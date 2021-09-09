@@ -22,6 +22,7 @@
        * [Local](howtouse/engine/deploy.md)
        * [K8s部署](howtouse/engine/k8s_deploy.md)
        * [Yarn部署](howtouse/engine/yarn_deploy.md)
+   * [MLSQL 命令行安装与配置](howtouse/mlsql_lang_cli.md)
 
 ## Analysis Workshop 操作
 
