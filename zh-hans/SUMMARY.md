@@ -22,6 +22,7 @@
        * [全手工K8s部署](howtouse/engine/k8s_deploy.md)
        * [使用mlsql-deploy部署K8s](howtouse/engine/prebuilt_image_k8s_deploy.md)
        * [Yarn部署](howtouse/engine/yarn_deploy.md)
+   * [MLSQL 桌面版安装使用](howtouse/mlsql_desktop_install.md)    
    * [MLSQL 命令行安装与配置](howtouse/mlsql_lang_cli.md)
    * [Sandbox 使用指南](howtouse/sandbox_manual.md)
 

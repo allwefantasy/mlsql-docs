@@ -16,7 +16,7 @@ mlsql-lang VSCode 插件有两种安装方式，包含本地安装和从插件�
 
     2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 mlsql-0.0.4.vsix 目录进行安装
 
-       ![img.png](../../zh-hans/plugin/images/img_local_install.png)
+       ![img.png](images/img_local_install.png)
 
 - 从 VSCode 插件 Market 安装
 
@@ -24,7 +24,7 @@ mlsql-lang VSCode 插件有两种安装方式，包含本地安装和从插件�
 
        > 友情提示: 使用 VPN 能加快 Market 的响应速度
 
-       ![img_1.png](../../zh-hans/plugin/images/img_looup_mlsql.png)
+       ![img_1.png](images/img_looup_mlsql.png)
 
 > 请注意:
 > 1. 请使用 mslql-lang-vscode-plugin 0.0.4 及以上版本
@@ -39,12 +39,12 @@ mlsql-lang VSCode 插件有两种安装方式，包含本地安装和从插件�
 
    > java.home 为本机 java 的安装目录，engine.home 为步骤1 中下载文件的解压目录（P.S. bin目录无需配置在 engin.home 里，只需要配置 bin 所在的目录）
 
-   ![img_2.png](../../zh-hans/plugin/images/img_cinfig_params.png)
+   ![img_2.png](images/img_cinfig_params.png)
 
 3. 创建一个.mlsql 或者 .mlsqlnb 后缀的文件，在 VSCode 里按住 `shift+command+p`，先选择【开发人员：重新加载窗口】确保 mlsql.config 文件生效，
    然后再选择 MLSQL RUN 即可编译和执行.mlsql文件
 
-   ![img_3.png](../../zh-hans/plugin/images/img_reload_window.png)
+   ![img_3.png](images/img_reload_window.png)
 
 ### 示例
 您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 MLSQL VSCode 插件的样例项目
