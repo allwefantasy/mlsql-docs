@@ -5,11 +5,11 @@
 * [MLSQL 介绍](README.md)
 * [所有版本](release-notes/README.md)
    * [MLSQL Stack版本管理策略](release-notes/version.md)
+   * [MLSQL Stack 2.1.0版发布](release-notes/2.1.1.md)
    * [MLSQL Stack 2.0.1版发布](release-notes/2.0.1.md)
    * [MLSQL Stack 2.0.0版发布](release-notes/2.0.0.md)
    * [MLSQL Stack 2.0.1 Bug 合集](release-notes/2.0.1-bug.md)
    * [MLSQL Stack 2.0.0 Bug 合集](release-notes/2.0.0-bug.md)
-   * 
 
 ## 快速启动
 
