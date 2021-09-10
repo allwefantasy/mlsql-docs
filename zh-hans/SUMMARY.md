@@ -3,8 +3,6 @@
 ## MLSQL 介绍
 
 * [MLSQL 介绍](README.md)
-* [MLSQL 官方博客](http://blog.mlsql.tech)
-* [MLSQL Stack体验站点](http://blog.mlsql.tech/blog/demo.html)
 * [所有版本](release-notes/README.md)
    * [MLSQL Stack版本管理策略](release-notes/version.md)
    * [MLSQL Stack 2.0.1版发布](release-notes/2.0.1.md)
@@ -21,8 +19,8 @@
    * [MLSQL Engine 安装与配置](howtouse/engine/README.md)
        * [启动参数详解](howtouse/engine/configuration.md)
        * [Local](howtouse/engine/deploy.md)
-       * [K8s部署](howtouse/engine/k8s_deploy.md)
-       * [K8s镜像部署指南](howtouse/engine/prebuilt_image_k8s_deploy.md)
+       * [全手工K8s部署](howtouse/engine/k8s_deploy.md)
+       * [使用mlsql-deploy部署K8s](howtouse/engine/prebuilt_image_k8s_deploy.md)
        * [Yarn部署](howtouse/engine/yarn_deploy.md)
    * [MLSQL 命令行安装与配置](howtouse/mlsql_lang_cli.md)
    * [Sandbox 使用指南](howtouse/sandbox_manual.md)
@@ -75,13 +73,6 @@
    * [内置常见UDF](system_udf/README.md)
        * [http请求](system_udf/http.md)
        * [常见函数](system_udf/vec.md)
-   * [一些有用的内置ET](process/README.md)
-       * [计算复杂的父子关系](process/estimator_transformer/TreeBuildExt.md)
-       * [改变表的分区数](process/estimator_transformer/RepartitionExt.md)
-       * [如何发送邮件](process/estimator_transformer/SendMessage.md)
-       * [数据采集组件mlsql-watcher使用](process/estimator_transformer/mlsql-watcher.md)
-       * [语法解析SyntaxAnalyzeExt使用](process/estimator_transformer/SyntaxAnalyzeExt.md)
-       * [JSON展开JsonExpandExt使用](process/estimator_transformer/JsonExpandExt.md)
 
 * [MLSQL流编程](stream/README.md)
    * [Kafka和MockStream](stream/datasource.md)
@@ -140,6 +131,15 @@
    * [Scala UDAF](udf/scala_udaf.md)
    * [Java UDF](udf/java_udf.md)
 
+## MLSQL 常见Native插件
+
+* [计算复杂的父子关系](process/estimator_transformer/TreeBuildExt.md)
+* [改变表的分区数](process/estimator_transformer/RepartitionExt.md)
+* [如何发送邮件](process/estimator_transformer/SendMessage.md)
+* [数据采集组件mlsql-watcher使用](process/estimator_transformer/mlsql-watcher.md)
+* [语法解析SyntaxAnalyzeExt使用](process/estimator_transformer/SyntaxAnalyzeExt.md)
+* [JSON展开JsonExpandExt使用](process/estimator_transformer/JsonExpandExt.md)
+
 ## 安全与隐私
 
 * [安全与隐私](security/sum.md)
@@ -153,7 +153,6 @@
 ## 性能与资源
 
 * [动态资源调整](resources/dynamic_resource.md)
-//* [监控]()
 
 
 ## 插件/API/商店
@@ -197,13 +196,7 @@
     * [Spark 3.0.0开发环境](dev_guide/engine/spark_3_0_0.md)    
 * [ET插件开发](dev_guide/engine/plugin/ET_README.md)
     * [ET插件开发](dev_guide/engine/plugin/et.md)
-    * [命令行开发](dev_guide/engine/plugin/et_command.md)
-    * [一些有用的内置ET](process/README.md)
-       * [计算复杂的父子关系](process/estimator_transformer/TreeBuildExt.md)
-       * [改变表的分区数](process/estimator_transformer/RepartitionExt.md)
-       * [如何发送邮件](process/estimator_transformer/SendMessage.md)
-       * [数据采集组件mlsql-watcher使用](process/estimator_transformer/mlsql-watcher.md)
-       * [语法解析SyntaxAnalyzeExt使用](process/estimator_transformer/SyntaxAnalyzeExt.md)
+    * [命令行开发](dev_guide/engine/plugin/et_command.md)    
 * [自动化测试用例开发](dev_guide/engine/it/integration_test.md)     
 * [其他插件开发](dev_guide/engine/plugin/OTHER_README.md)
     * [自定义数据源插件开发](dev_guide/engine/plugin/ds.md)

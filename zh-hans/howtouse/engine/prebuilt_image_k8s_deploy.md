@@ -23,7 +23,7 @@ make all
 
 ![mlsql-deploy_help](images/mlsql-deploy_help.PNG)
 
-### 安装并配置 K8S 
+### 安装并配置 K8S
 
 若您使用个人电脑，推荐使用 [Minikube](https://minikube.sigs.k8s.io/docs/), 仅需1条命令就能启动单机版K8S，它支持 Linux/MacOS/Windows。我们团队小伙伴已经成功
 
