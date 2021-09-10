@@ -11,7 +11,8 @@ Sandbox 包含了 MLSQL Stack 两大组件 Console 和 Engine，您可以快速�
 ### 部署 Sandbox
 
 使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器
-```shell script
+
+```shell
 docker run -d \
 --restart=always \
 --name sandbox-2.4.3-2.1.0 \
@@ -19,9 +20,11 @@ docker run -d \
 -p 9003:9003 \
 -e MYSQL_ROOT_PASSWORD=mlsql \
 techmlsql/mlsql-sandbox:2.4.3-2.1.0
-``` 
+```
+ 
 使用 docker 命令启动 Spark 3.1.1版 Sandbox 容器
-```shell script
+
+```shell
 docker run -d \
 --restart=always \
 --name sandbox-3.1.1-2.1.0 \
@@ -30,13 +33,14 @@ docker run -d \
 -e MYSQL_ROOT_PASSWORD=mlsql \
 techmlsql/mlsql-sandbox:3.1.1-2.1.0
 ```
+
 请注意:
 - 若启动容器时，拉取镜像超时，
 - 您只需启动一个Sandbox 镜像
 
 ## 体验 MLSQL 功能
 
-浏览器登录 http://localhost:9002，在用户注册界面，输入用户名和密码，在下一界面按下图输入，点击 Go
+浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，在下一界面按下图输入，点击 Go
 
 和 Go to console Page, 进入使用界面。
 
@@ -45,6 +49,7 @@ techmlsql/mlsql-sandbox:3.1.1-2.1.0
 ### 使用 Python和Ray 处理JSON 数据
 
 请执行代码
+
 ```sql
 -- 构造测试数据
 set mockData='''
@@ -84,6 +89,7 @@ ray_context.foreach(echo)
 
 select * from newdata as output;
 ``` 
+
 结果如下:
 
 ![Python-Ray结果](images/python-ray-result.PNG)
@@ -109,5 +115,6 @@ load delta.`dt1` as table3;
  
 select * from table3 as table4;
  ```
+
 结果如下:
 ![MySQL-deltalake](images/mysql-deltalake.PNG)

@@ -12,13 +12,17 @@
 
 从[Github](https://github.com/allwefantasy/mlsql-deploy)获取部署工具代码, 配置 [Goproxy](https://github.com/goproxy/goproxy.cn),
 并在项目根目录执行命令开始编译
-```shell script
+
+```shell
 make all
 ``` 
+
 完成后, 执行命令:
-```shell script
+
+```shell
 ./mlsql-deploy -h
 ```
+
 结果如下图:
 
 ![mlsql-deploy_help](images/mlsql-deploy_help.PNG)
@@ -28,9 +32,11 @@ make all
 若您使用个人电脑，推荐使用 [Minikube](https://minikube.sigs.k8s.io/docs/), 仅需1条命令就能启动单机版K8S，它支持 Linux/MacOS/Windows。我们团队小伙伴已经成功
 
 部署至 Ubuntu 20.04 minikube 1.23.0。下载后，执行以下命令启动 K8S，配置代理能大大加速下载镜像速度。
-```shell script
+
+```shell
 minikube start
 ```
+
 若安装生产环境K8S集群，请参考[13 - MLSQL on k8s（1） - k8s安装](https://mp.weixin.qq.com/s?__biz=MzI5NzEwODUwNw==&mid=2247483782&idx=1&sn=642b036caf8ab6a07ae7cdebe347acc3&chksm=ecbb54f2dbccdde4f6555f4e1c62403f073cf4e50d6aa66034700b2d9a8f97361857e518edc1&scene=21#wechat_redirect)。
 
 ### <a name="juicefs-config"></a>配置 JuiceFS
@@ -44,7 +50,8 @@ minikube start
 ### 配置 K8S 密钥
 
 启动 MLSQL Engine Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
-```shell script
+
+```shell
 kubectl create secret docker-registry regcred \
 --docker-username=<docker hub用户名> \
 --docker-password=<docker hub 密码> \
@@ -55,7 +62,7 @@ kubectl create secret docker-registry regcred \
 
 使用 mlsql-deploy 工具，部署至 K8S 集群。例子如下：
 
-```shell script
+```shell
 # 请修改目录为实际 mlsql-deploy
 /work/mlsql-deploy/mlsql-deploy run \
   --kube-config  ~/.kube/config \
@@ -71,18 +78,22 @@ kubectl create secret docker-registry regcred \
   --storage-name  jfs \
   --storage-meta-url redis://192.168.50.254:6379/1
 ```
-参数说明如下: 
-- kube-config &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; K8S 配置文件。mlsql-deploy 会读取 K8S ApiServer 地址
-- engine-name &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 请取一个有实际意义的名字
-- engine-image&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;请不要改，这是 K8S 从 docker hub 拉取的镜像名
-- engine-executor-core-num&ensp;  每个 Spark Executor 核数 
-- engine-executor-num &ensp;&ensp;&ensp;&ensp;&ensp; Spark executor 数量
-- engine-executor-memory &ensp;&ensp; Spark executor 堆内存，单位MB
-- engine-driver-core-num &ensp;&ensp;&ensp;&ensp;Spark driver 核数
-- engine-driver-memory &ensp;&ensp;&ensp;&ensp;&ensp; Spark driver 堆内存, 单位MB
-- engine-access-token &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 调用 MLSQL Engine API所需 Token
-- engine-jar-path-in-container &ensp;MLSQL Engine jar 在容器内路径，请不要修改。启动Spark Driver需要它。
-- storage-name &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 执行 juicefs format命令时，指定的名称
-- storage-meta-url &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; JuiceFS 的元数据库连接串，需要与[配置JuiceFS](#juicefs-config)一致
+
+参数说明如下:
+
+参数名|说明 
+---|---
+kube-config | K8S 配置文件。mlsql-deploy 会读取 K8S ApiServer 地址
+engine-name | K8S Deployment名称 请取一个有实际意义的名字
+engine-image | 请不要改，这是 K8S 从 docker hub 拉取的镜像名
+engine-executor-core-num | 每个 Spark Executor 核数 
+engine-executor-num | Spark executor 数量
+engine-executor-memory | Spark executor 堆内存，单位MB
+engine-driver-core-num | Spark driver 核数
+engine-driver-memory | Spark driver 堆内存, 单位MB
+engine-access-token | 调用 MLSQL Engine API所需 Token
+engine-jar-path-in-container | MLSQL Engine jar 在容器内路径，请不要修改。启动Spark Driver需要它。
+storage-name | 执行 juicefs format命令时，指定的名称
+storage-meta-url | JuiceFS 的元数据库连接串，需要与[配置JuiceFS](#juicefs-config)一致
 
 
