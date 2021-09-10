@@ -201,6 +201,7 @@
 * [自动化测试用例开发](dev_guide/engine/it/integration_test.md)     
 * [其他插件开发](dev_guide/engine/plugin/OTHER_README.md)
     * [自定义数据源插件开发](dev_guide/engine/plugin/ds.md)
+* [如何贡献代码](dev_guide/contribute.md)    
 
 ## 附录
 
