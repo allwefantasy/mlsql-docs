@@ -25,9 +25,9 @@ as data1;
 
 train data1 as AutoML.`/tmp/auto_ml` where
 
-algos="LogisticRegression,NaiveBayes" 
+-- if the param 'algos' is not setted, the data will be trained among GBTs,LinearRegression,LogisticRegression,NaiveBayes,RandomForest 
 
-and sortedBy='f1'
+algos="LogisticRegression,NaiveBayes" 
 
 -- once set true,every time you run this script, MLSQL will generate new directory for you model
 
