@@ -1,7 +1,5 @@
 ## MLSQL 命令行安装与配置
 
-
-
 我们提供了命令行执行脚本的能力，方便用户自助实现更多自动化能力，如下图所示，我们通过命令行执行一个开发好的 MLSQL 脚本：
 
 ![execute mlsql cli](execute_mlsql_cli.png)
@@ -10,11 +8,7 @@
 
 ## 安装流程
 
-
-
 ### 一、设置 MLSQL 环境
-
-
 
 下面将介绍 mlsql 命令行的几个环境变量的含义和安装步骤。
 
@@ -83,13 +77,12 @@ mlsql lang cli version 0.0.4-dev (2021-09-06 4a628b2)
 
 ### 二、执行 mlsql 脚本
 
-
-
 ```shell
 mlsql run ./src/common/hello.mlsql
 ```
 
 ## 使用示例
+
 下面我们来看一个完整的例子，我们创建一个 `hello.mlsql` 的脚本文件，内容如下：
 
 ```
@@ -108,7 +101,7 @@ mlsql run hello.mlsql
 
 需要通过 系统偏好设置 - 安全性与隐私 - 允许从以下位置下载 App ，选择仍然允许。
 
-![安全性与隐私](mac_app_warn_2.png)
+![安全性与隐私](mac_app_warn_2.jpeg)
 
 然后我们就可以通过命令行执行并查看效果，完整的执行日志如下：
 ```

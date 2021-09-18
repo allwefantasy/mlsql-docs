@@ -199,13 +199,13 @@ MLSQL内置了非常多的宏命令，可以帮助用户实现更好的交互。
 !runScript ''' select 1 as a as b; ''' named output;
 ```
 
-## !last
+## !LastCommand
 
 将上一条命令的输出取一个表名，方便后续使用：
 
 ```
 !hdfs -ls /tmp;
-!last named table1;
+!LastCommand named table1;
 select * from table1 as output;
 ```
 
