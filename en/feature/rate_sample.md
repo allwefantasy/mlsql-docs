@@ -23,11 +23,11 @@ load jsonStr.`jsonStr` as data;
 现在我们使用RateSample进行切分：
 
 ```sql
-train data as RateSampler.`/tmp/model` 
+train data as RateSampler.`` 
 where labelCol="label"
-and sampleRate="0.7,0.3";
+and sampleRate="0.7,0.3" as marked_dataset;
 
-load parquet.`/tmp/model` as output ;
+select * from marked_dataset as output;
 ```
 
 其中labelCol指定按什么字段进行切分，sampleRate指定切分比例。
@@ -36,9 +36,14 @@ load parquet.`/tmp/model` as output ;
 
 ```
 features            label   __split__
-[5.1,3.5,1.4,0.2]	1	    0
-[5.1,3.5,1.4,0.2]	1	    0
-[4.7,3.2,1.3,0.2]	1	    1
+[5.1,3.5,1.4,0.2]	1   	    0
+[5.1,3.5,1.4,0.2]	1   	    0
+[4.7,3.2,1.3,0.2]	1	        0
+[5.1,3.5,1.4,0.2]	0	        0
+[5.1,3.5,1.4,0.2]	0	        0
+[4.4,2.9,1.4,0.2]	0	        0
+[5.1,3.5,1.4,0.2]	0	        0
+[5.1,3.5,1.4,0.2]	0	        0
 ```
 
 数据集多出了一个字段 __split__, 0 表示0.7那个集合（训练集）， 1表示0.3那个集合（测试集）。
@@ -46,10 +51,10 @@ features            label   __split__
 可以这么使用
 
 ```sql
-select * from output where __split__=1
+select * from marked_dataset where __split__=1
 as validateTable;
 
-select * from output where __split__=0
+select * from marked_dataset where __split__=0
 as trainingTable;
 ```
 
