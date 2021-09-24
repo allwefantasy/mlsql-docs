@@ -32,15 +32,15 @@ and fitParam.0.numTrees="4"
 run/predict 具有完全一致的用法，但是目的不同。 run的语义是对数据进行处理，而不是训练，他是符合大数据处理的语义的。我们下面来看一个例子：
 
 ```sql
-run testData as RepartitionExt.`` where partitionNum="5" as newdata; 
+run testData as TableRepartition.`` where partitionNum="5" as newdata; 
 ```
 
 格式和train是一致的，那这句话怎么读呢？
 
 ```
-运行testData数据集，并且使用RepartitionExt进行处理，处理的参数是partitionNum="5"，最后处理后的结果我们取名叫newdata
+运行testData数据集，并且使用 TableRepartition 进行处理，处理的参数是partitionNum="5"，最后处理后的结果我们取名叫newdata
 ```
-RepartitionExt是用于从新分区的一个模块，也就是将数据集重新分成N分，N由partitionNum配置。
+TableRepartition 是用于从新分区的一个模块，也就是将数据集重新分成N分，N由partitionNum配置。
 
 那么predict呢？ predict语句我们一看，应该就知道是和机器学习相关的，对的，他是为了批量预测用的。比如前面，我们将训练随机森林的结果模型放在了
 `/tmp/rf` 目录下，现在我们可以通过predict语句加载他，并且预测新的数据。
@@ -51,7 +51,7 @@ predict testData as RandomForest.`/tmp/rf`;
 
 这句话的意思是，对testData进行预测，预测的算法是RandomForest，对应的模型在/tmp/rf下。
 
-通过上面的举例，我们知道，train/predict是应用机器学习领域的，分别对应建模和预测。run主要是数据处理用的。在前面提及的RandomForest，RepartitionExt，
+通过上面的举例，我们知道，train/predict 是应用机器学习领域的，分别对应建模和预测。run主要是数据处理用的。在前面提及的RandomForest，TableRepartition，
 我们叫做ET,用户都可以实现自己ET，添加新的功能特性。MLSQL提供了良好的扩展机制方便用户进行自己的封装，可以说，整个MLSQL大部分功能集合都是基于
 ET做扩展而形成的。
 

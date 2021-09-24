@@ -28,7 +28,7 @@ save overwrite table1 as json.`${savePath}` where fileNum="10";
 对于表，我们其实也可以直接通过run语法来先进行分区：
 
 ```sql
-run table1 as RepartitionExt.`` where partitionNum="10" as newTable;
+run table1 as TableRepartition.`` where partitionNum="10" as newTable;
 save overwrite newTable as json.`/tmp/newTable`;
 
 ```
