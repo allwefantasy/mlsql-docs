@@ -4,11 +4,11 @@
 下面以例子介绍其使用方式。
 ### 使用例子
 - 查看帮助
-```shell script
+```sql
 load modelExample.`JsonExpandExt` AS output;
 ```
 - 例子1：JSON没有嵌套
-```shell script
+```sql
 SELECT '{"name":"Michael"}' AS col_1
 UNION ALL
 SELECT '{"name":"Andy", "age":30}' AS col_1 AS table_1;
@@ -26,7 +26,7 @@ run table_1 as JsonExpandExt.`` where inputCol="col_1" AND samplingRatio = "1.0"
 的小数。
 
 - 例子2：嵌套的JSON
-```shell script
+```sql
 SELECT '{"name":"Michael", "address":{"city":"hangzhou", "district":"xihu"} } ' AS col_1 AS table_1;
 run table_1 as JsonExpandExt.`` where inputCol="col_1" AND samplingRatio = "1.0" as table_2;
 run table_2 AS JsonExpandExt.`` WHERE inputCol="address" AS table_3;
@@ -43,4 +43,4 @@ run table_2 AS JsonExpandExt.`` WHERE inputCol="address" AS table_3;
 启动容器后，浏览器输入 http://127.0.0.1:9003, 运行上述代码。
 
 ### 意见反馈
-若有任何问题，请至 https://github.com/allwefantasy/mlsql，首页有二维码，扫码加入用户群或者提交Issue。
+若有任何问题，请至 [mlsql github主页](https://github.com/allwefantasy/mlsql)，首页有二维码，扫码加入用户群或者提交Issue。
