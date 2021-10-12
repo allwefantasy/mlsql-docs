@@ -47,21 +47,27 @@ load delta.`/tmp/delta/table10` as output;
 -streaming.datalake.path /tmp/datahouse
 ```
 
+> 默认情况，/tmp/datahouse 是本地目录。若 $SPARK_HOME/conf 包含HDFS配置文件，/tmp/datahouse 指 HDFS 目录；同样的方式也可支持 OSS 等对象存储。
+>
+> 请先创建目录 /tmp/datahouse.
+
 系统便会按数据湖模式运行。此时用户不能自己写路径了，而是需要按db.table的模式使用。
 
+保存数据湖表
+
+```sql
+select 1 AS id, 'abc' AS address
+UNION ALL
+SELECT 2 AS id, 'def' AS address
+AS table_1;
+
+save overwrite table_1 as delta.`default.table_1` partitionBy id;
+```
 
 加载数据湖表：
 
 ```sql
-load delta.`public.table1` as table1;
-```
-
-保存数据库湖表：
-
-```sql
-save append table1  
-as delta.`public.table1`
-partitionBy col1;
+load delta.`default.table_1` as output;
 ```
 
 如果你开启了权限验证 ，并且使用MLSQL Console时，那么需要按如下方式配置权限：
