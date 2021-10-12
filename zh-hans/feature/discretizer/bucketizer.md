@@ -1,8 +1,8 @@
 # Bucketizer
 
- Bucketizer可以让你手动指定如何对连续数据进行切分，从而形成一个类似分类的数据。
+ Bucketizer 可以让你手动指定如何对连续数据进行切分，从而形成一个类似分类的数据。
  假设我们有如下数据：
- 
+
 
 ```sql
 -- create test data
@@ -35,7 +35,7 @@ and `fitParam.1.splitArray`="-inf,0.0,1.0,inf";
 
 ```
 
-这里，我们使用fitParam.0 表是第一组切分规则，fitParam.1表示第二组切分规则。fitParam.0 负责对a切分，fitParam.1负责对b切分。
+这里，我们使用 fitParam.0 表示第一组切分规则，fitParam.1 表示第二组切分规则。fitParam.0 负责对a切分，fitParam.1负责对b切分。splitArray表示 [- infinite, 0], [0,1], [1, + infinite] 分区。
 
 > 该ET目前比较特殊查看切分结果需要使用register语法注册函数。
 
@@ -44,7 +44,7 @@ and `fitParam.1.splitArray`="-inf,0.0,1.0,inf";
 |parameter|default|comments|
 |:----|:----|:----|
 |method|bucketizer|support: bucketizer, quantile|
-|fitParam.${index}.inputCols|None|double类型字段|
+|fitParam.${index}.inputCol|None|double类型字段|
 |fitParam.${index}.splitArray|None|bucket array，-inf ~ inf ，size should > 3，[x, y)|
 
 ## 如何在预测时使用

@@ -20,7 +20,7 @@ load jsonStr.`jsonStr` as data;
 select vec_dense(features) as features ,label as label from data
 as data1;
 
--- use RandomForest
+-- use NaiveBayes
 train data1 as NaiveBayes.`/tmp/model` where
 
 -- once set true,every time you run this script, MLSQL will generate new directory for you model
