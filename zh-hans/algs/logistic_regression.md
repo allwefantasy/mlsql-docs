@@ -77,7 +77,7 @@ trainParams	Map(featuresCol -> features, labelCol -> label, fitIntercept -> true
 ## 批量预测
 
 ```
-predict data1 as RandomForest.`/tmp/model`;
+predict data1 as LogisticRegression.`/tmp/model`;
 ```
 
 结果如下：
@@ -105,5 +105,6 @@ autoSelectByMetric="f1";
 select lr_predict(features) as predict_label, label from data1 as output;
 ```
 
-algIndex可以选择我用哪组参数得到的算法。我们也可以让系统自动选择，前提是我们在训练时配置了evalateTable， 这个只要使用autoSelectByMetric即可。
+algIndex可以选择我用哪组参数得到的算法。我们也可以让系统自动选择，前提是我们在训练时配置了evaluateTable， 这个只要使用autoSelectByMetric即可。
 最后，就可以像使用一个函数一样对一个feature进行预测了。
+
