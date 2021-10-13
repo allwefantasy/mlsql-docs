@@ -30,8 +30,8 @@ keepVersion="true"
 and evaluateTable="data1"
 
 -- specify group 0 parameters
-and `fitParam.0.labelCol`="features"
-and `fitParam.0.featuresCol`="label"
+and `fitParam.0.featuresCol`="features"
+and `fitParam.0.labelCol`="label"
 and `fitParam.0.maxDepth`="2"
 
 -- specify group 1 parameters
