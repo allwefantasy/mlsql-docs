@@ -20,9 +20,10 @@ mlsql-lang VSCode 插件有两种安装方式，包含本地安装和从插件�
 
 - 本地安装
 
-    1. 从 [MLSQL 下载站点](http://mlsql-download.kyligence.io/2.1.0/) 下载 mlsql-0.0.4.vsix 文件
+    1. 从 [MLSQL 下载站点](http://mlsql-downloads.kyligence.io/2.1.0/) 下载 mlsql-<latest_version>.vsix 文件
+    > latest_version 表示最新版本，例如0.0.5
 
-    2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 mlsql-0.0.4.vsix 目录进行安装
+    2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 mlsql-<latest_version>.vsix 目录进行安装
 
        ![img.png](images/img_local_install.png)
 
