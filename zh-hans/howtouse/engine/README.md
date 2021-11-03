@@ -12,7 +12,7 @@
 1. 需要有Spark发行包
 2. 支持Spark支持的所有环境
 
-MLSQL Engine 的发行包可以在 [MLSQL官方下载站点](http://mlsql-downloads.kyligence.io/)下载。目前最新版本为[2.1.1](http://mlsql-downloads.kyligence.io/2.1.0/)。
+MLSQL Engine 的发行包可以在 [MLSQL官方下载站点](http://mlsql-downloads.kyligence.io/)下载。目前最新版本为[2.1.0](http://mlsql-downloads.kyligence.io/2.1.0/) 。
 
 在对应版本的下载目录里，你应该会看到两个发行包:
 

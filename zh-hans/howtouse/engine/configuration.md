@@ -92,7 +92,7 @@ http://store.mlsql.tech/run?action=downloadPlugin&pluginType=MLSQL_PLUGIN&plugin
 
 ## session设置
 
-MLSQL支持用户级别Session,请求级别Session。每个Session相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别Session,如果希望使用请求级别Session，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](http://docs.mlsql.tech/mlsql-engine/api/run-script.html)。
+MLSQL支持用户级别Session,请求级别Session。每个Session相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别Session,如果希望使用请求级别Session，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](https://docs.mlsql.tech/mlsql-console/api/run-script.html) 。
 
 
 | 参数 | 说明 | 示例值 |

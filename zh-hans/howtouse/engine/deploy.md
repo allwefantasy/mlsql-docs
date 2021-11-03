@@ -4,8 +4,8 @@ Local部署适合开发使用。如果企业服务器单机够强劲，也可以
 
 ## 安装条件
 
-1. 下载[Spark发行包](https://spark.apache.org/downloads.html)
-2. 下载[MLSQL发行包](http://download.mlsql.tech/2.0.0/)
+1. 下载[Spark发行包](https://archive.apache.org/dist/spark/)
+2. 下载[MLSQL发行包](https://mlsql-downloads.kyligence.io/)
 
 注意:
 
