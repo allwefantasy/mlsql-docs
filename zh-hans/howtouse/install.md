@@ -2,11 +2,11 @@
 
 ## 下载
 
-下载地址： [2.0.0](http://download.mlsql.tech/2.0.0/)
+下载地址： [2.1.0](https://mlsql-downloads.kyligence.io/2.1.0/mlsql-console-2.1.0.tar.gz)
 
-MLSQL Engine 和 MLSQL Console需要配套。MLSQL Engine的安装，请参考[MLSQL Stack 安装介绍中的 MLSQL Engine部分](http://docs.mlsql.tech/zh/installation/downloa_prebuild_package.html)
+MLSQL Engine 和 MLSQL Console需要配套。MLSQL Engine的安装，请参考[MLSQL Engine安装与配置](engine/README.md)
 
-下载解压后，会看到一个mlsql-console-2.0.0文件夹，进入该目录：
+下载解压后，会看到一个mlsql-console-2.1.0文件夹，进入该目录：
 
 ![](http://docs.mlsql.tech/upload_images/102b029c-19a0-423e-8776-e3128ca8eb4c.png)
 
