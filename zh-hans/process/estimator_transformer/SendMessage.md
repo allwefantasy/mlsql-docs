@@ -29,14 +29,13 @@ set EMAIL_TITLE = "这是邮件标题";
 set EMAIL_BODY = "MLSQL 任务 xx 运行完成，请及时查询结果";
 set EMAIL_TO = "137297351@qq.com,lisheng_zhanglin@163.com";
 
-select "${EMAIL_BODY}" as content as data;
-
 -- 使用配置账号的方式
-run data as SendMessage.``
+run command as SendMessage.``
 where method = "mail"
 and from = "137297351@qq.com"
 and to = "${EMAIL_TO}"
 and subject = "${EMAIL_TITLE}"
+and content = "${EMAIL_BODY}"
 and smtpHost = "smtp.qq.com"
 and smtpPort = "587"
 and userName = "137297351@qq.com"
@@ -47,12 +46,40 @@ and password="---"
 我们支持使用本地邮件服务的方式，方式如下：
 
 ```sql
-run data as SendMessage.``
+run command as SendMessage.``
 where method = "mail"
 and mailType="local"
+and content = "${EMAIL_BODY}"
 and from = "137297351@qq.com"
 and to = "${EMAIL_TO}"
 and subject = "${EMAIL_TITLE}"
+;
+```
+
+下面介绍一下如何使用邮件发送HTML格式的文本，并携带附件。
+
+1） 首先通过 MLSQL Api Console 上传2个CSV文件`employee.csv`和`company.csv`，作为附件内容。
+
+2） 通过如下SQL的方式发送该邮件，示例如下：
+
+```sql
+set EMAIL_TITLE = "这是邮件标题";
+set EMAIL_BODY = '''<div>这是第一行</div><br/><hr/><div>这是第二行</div>''';
+set EMAIL_TO = "137297351@qq.com";
+
+run command as SendMessage.``
+where method="mail"
+and content="${EMAIL_BODY}"
+and from = "137297351@qq.com"
+and to = "${EMAIL_TO}"
+and subject = "${EMAIL_TITLE}"
+and contentType="text/html"
+and attachmentContentType="text/csv"
+and attachmentPaths="/tmp/employee.csv,/tmp/employee.csv"
+and smtpHost = "smtp.qq.com"
+and smtpPort="587"
+and `userName`="137297351@qq.com"
+and password="---"
 ;
 ```
 
@@ -71,6 +98,9 @@ and subject = "${EMAIL_TITLE}"
 | cc | 抄送人邮箱账户，多个账户使用','分隔 |
 | subject | 邮件标题 |
 | content | 邮件内容 |
+| contentType | 邮件内容的格式，目前支持标准的Java Mail Content-Type，如：text/plain、text/html、text/csv、image/jpeg、application/octet-stream、multipart/mixed |
+| attachmentContentType | 邮件附件内容的格式，目前支持标准的Java Mail Content-Type |
+| attachmentPaths | 邮件附件地址，多个地址使用','分隔 |
 | smtpHost | SMTP邮件服务域名；如果为config模式该值必填。 |
 | smtpPort | SMTP邮件服务端口号；如果为config模式该值必填。 |
 

@@ -68,7 +68,7 @@ partitionType支持如下2种配置：
 下面通过一些 Demo 来演示这种差异。
 
 
-**Test Dataframes**
+**1）Test Dataframes**
 
 在这个 Demo 中使用以下 JSON 数据：
 
@@ -90,7 +90,7 @@ load jsonStr.`jsonStr` as data;
 
 
 
-所有测试结果都使用如下取数逻辑：
+所有测试结果都使用如下取数逻辑（该SQL应放在TableRepartition语句之后用于取数）：
 
 ```
 !profiler sql ''' 
@@ -102,8 +102,9 @@ order by partition; ''' ;
 
 
 
-partitionType="hash" 代码如下：
+**2）partitionType="hash"**
 
+示例代码如下：
 ```
 run data as TableRepartition.`` where partitionNum="3" and partitionType="hash" as simpleData;
 ```
@@ -118,8 +119,9 @@ run data as TableRepartition.`` where partitionNum="3" and partitionType="hash" 
 
 
 
-partitionType="range" 代码如下：
+**3）partitionType="range"**
 
+示例代码如下：
 ```
 run data as TableRepartition.`` where partitionNum="3" and partitionType="range" and partitionCols="id" as simpleData;
 ```
