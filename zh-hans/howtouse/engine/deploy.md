@@ -36,6 +36,6 @@ export SPARK_HOME=... && ./start-default.sh
 
 ![](http://docs.mlsql.tech/upload_images/d4942564-b1d4-4771-b6c2-0eab0a9fe134.png)
 
-具体可配置参数参看[启动参数详解](http://docs.mlsql.tech/mlsql-engine/howtouse/configuration.html)
+具体可配置参数参看[启动参数详解](./configuration.md)
 
 
