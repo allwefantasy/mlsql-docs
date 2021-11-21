@@ -56,7 +56,7 @@ set savePath="/tmp/jack";
 
 load jsonStr.`rawData` as table1;
 
-save overwrite table1  where header="true" as csv.`${savePath}`;
+save overwrite table1 as csv.`${savePath}`  where header="true";
 
 load csv.`${savePath}` where header="true" as table2 ;
 
