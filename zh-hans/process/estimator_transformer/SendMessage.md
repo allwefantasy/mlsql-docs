@@ -27,18 +27,22 @@
 ```sql
 set EMAIL_TITLE = "这是邮件标题";
 set EMAIL_BODY = "MLSQL 任务 xx 运行完成，请及时查询结果";
-set EMAIL_TO = "137297351@qq.com,lisheng_zhanglin@163.com";
+set EMAIL_TO = "yourMailAddress@qq.com,yourMailAddress@163.com";
 
 -- 使用配置账号的方式
 run command as SendMessage.``
 where method = "mail"
-and from = "137297351@qq.com"
+and from = "yourMailAddress@qq.com"
 and to = "${EMAIL_TO}"
 and subject = "${EMAIL_TITLE}"
 and content = "${EMAIL_BODY}"
+-- 设置邮件客户端使用的服务器域名、端口号
 and smtpHost = "smtp.qq.com"
 and smtpPort = "587"
-and userName = "137297351@qq.com"
+-- 设置邮件客户端的协议TLS，如果使用SSL协议，请配置：`properties.mail.smtp.ssl.enable`= "true"
+and `properties.mail.smtp.starttls.enable`= "true"
+-- 设置邮件客户端的用户名、授权码
+and userName = "yourMailAddress@qq.com"
 and password="---"
 ;
 ```
@@ -50,7 +54,7 @@ run command as SendMessage.``
 where method = "mail"
 and mailType="local"
 and content = "${EMAIL_BODY}"
-and from = "137297351@qq.com"
+and from = "yourMailAddress@qq.com"
 and to = "${EMAIL_TO}"
 and subject = "${EMAIL_TITLE}"
 ;
@@ -65,12 +69,12 @@ and subject = "${EMAIL_TITLE}"
 ```sql
 set EMAIL_TITLE = "这是邮件标题";
 set EMAIL_BODY = '''<div>这是第一行</div><br/><hr/><div>这是第二行</div>''';
-set EMAIL_TO = "137297351@qq.com";
+set EMAIL_TO = "yourMailAddress@qq.com";
 
 run command as SendMessage.``
 where method="mail"
 and content="${EMAIL_BODY}"
-and from = "137297351@qq.com"
+and from = "yourMailAddress@qq.com"
 and to = "${EMAIL_TO}"
 and subject = "${EMAIL_TITLE}"
 and contentType="text/html"
@@ -78,7 +82,8 @@ and attachmentContentType="text/csv"
 and attachmentPaths="/tmp/employee.csv,/tmp/employee.csv"
 and smtpHost = "smtp.qq.com"
 and smtpPort="587"
-and `userName`="137297351@qq.com"
+and `properties.mail.smtp.starttls.enable`= "true"
+and `userName`="yourMailAddress@qq.com"
 and password="---"
 ;
 ```
@@ -103,7 +108,7 @@ and password="---"
 | attachmentPaths | 邮件附件地址，多个地址使用','分隔 |
 | smtpHost | SMTP邮件服务域名；如果为config模式该值必填。 |
 | smtpPort | SMTP邮件服务端口号；如果为config模式该值必填。 |
-
+| properties.[邮件客户端配置] | javaMail邮件客户端配置，常用配置如：properties.mail.debug、properties.mail.smtp.ssl.enable、properties.mail.smtp.ssl.enable、properties.mail.smtp.starttls.enable等 |
 
 
 ### Q&A
@@ -112,24 +117,34 @@ and password="---"
 
 在 MLSQL config 模式中，使用的邮件用户代理（ Mail User Agent, 简称 MUA ）客户端程序是 JavaMail-API。
 
-#### 2. 为什么需要邮箱授权码（password）
+#### 2. 什么是授权码？
 
-使用客户端连接邮箱 SMTP 服务器时，可能存在邮件泄露风险，甚至危害操作系统的安全，大部分邮件服务都采用 SSL 协议的加密方式，需要我们提供授权码验证用户身份，用于登录第三方客户端邮箱发送邮件。
+授权码是用于登录第三方客户端的专用密码。
 
-#### 3. 如何获取邮箱授权码（password）
+适用于登录以下服务：POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务。
+
+> 注意：大部分邮件服务为了你的帐户安全，更改账号密码会触发授权码过期，需要重新获取新的授权码登录。
+
+#### 3. 为什么需要邮箱授权码（password）
+
+使用客户端连接邮箱 SMTP 服务器时，可能存在邮件泄露风险，甚至危害操作系统的安全，大部分邮件服务都需要我们提供授权码，验证用户身份，用于登录第三方客户端邮箱发送邮件。
 
 不同邮箱获取授权码的方式不同，我们以`QQ邮箱`为例，首先访问 `设置 - 账户 - POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务`，然后找到下图所示的菜单，开启 POP3/SMTP 服务，并点击`生成授权码`。
 
 ![qq_mail_indentify_code.png](qq_mail_indentify_code.png)
 
-#### 4. 如何获取 smtpHost、smtpPort
+#### 5. 如何获取 smtpHost、smtpPort
 
-不同邮箱获取授权码的方式不同，我们可以很容易在用户手册中找到邮箱提供的SMTP服务器，以QQ邮箱为例，QQ邮箱 POP3 和 SMTP 服务器地址设置如下：
+不同邮箱获取授权码的方式不同，我们可以很容易在用户手册中找到邮箱提供的SMTP服务器。以QQ邮箱为例，QQ邮箱 POP3 和 SMTP 服务器地址设置如下：
 
-| 邮箱   | POP3服务器（端口995） | SMTP服务器（端口587） |
-| ------ | --------------------- | --------------------- |
-| qq.com | pop.qq.com            | smtp.qq.com           |
+| 类型       | 服务器名称 | 服务器地址  | 非SSL协议端口号 | SSL协议端口号 | TSL协议端口 |
+| ---------- | ---------- | ----------- | --------------- | ------------- | ----------- |
+| 发件服务器 | SMTP       | smtp.qq.com | 25              | 465       | 587         |
+| 收件服务器 | POP        | pop.qq.com  | 110             | 995           | -           |
+| 收件服务器 | IMAP       | imap.qq.com | 143             | 993           | -           |
 
 如果使用的是163邮箱，则相关服务器信息：
 
 ![163_mail_indentify_code.png](163_mail_indentify_code.png)
+
+> 注意：每个邮件厂商的smtp服务都有自己的实现，不同的厂商端口号对应的协议可能不同，比如端口587，在qq中使用的TSL协议，而在163中使用的是SSL协议，请以官方使用说明为准。
